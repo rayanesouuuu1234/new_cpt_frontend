@@ -135,7 +135,7 @@ function predictBill() {
     time: document.getElementById("time").value,
     size: parseInt(document.getElementById("size").value)
   };
-  const apiUrl = "http://127.0.0.1:8069/api/tips/predict"; // Change the API endpoint URL accordingly
+  const apiUrl = "http://127.0.0.1:8086/api/tips/predict"; // Change the API endpoint URL accordingly
   // Send input data to server for prediction
   if(document.getElementById("type").value === "yeongsu"){
     fetch(apiUrl+"1", {
