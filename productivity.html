@@ -1,23 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload</title>
+    <title>Productivity</title>
     <style>
-        body {
-            background: linear-gradient(45deg, #000000, #2c2c2e);
-            height: 100vh;
-            font-family: 'Montserrat', sans-serif;
-        }
+body {
+    background: linear-gradient(45deg, #000000, #2c2c2e);
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0; /* Reset default margin */
+}
 
-        .container {
-            position: absolute;
-            transform: translate(-50%, -50%);
-            top: 50%;
-            left: 50%;
-        }
+.container {
+    background: rgba(58, 58, 60, 0.3);
+    padding: 3em;
+    border-radius: 20px;
+    border-left: 1px solid rgba(58, 58, 60, 0.3);
+    border-top: 1px solid rgba(58, 58, 60, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 600px;
+    margin: auto; /* This will center the container if flexbox doesn't work */
+}
 
+/* Additional styling can follow here */
         .error {
             background: rgba(58, 58, 60, 0.3);
             padding: 3em;
@@ -188,8 +199,128 @@
             outline: none;
         }
     </style>
+   <title>Productivity Tracker</title>
+   <style>
+       body {
+           background: linear-gradient(45deg, #000000, #2c2c2e);
+           height: 100vh;
+           font-family: 'Montserrat', sans-serif;
+           color: #fff;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           text-align: center;
+           margin: 0;
+       }
+
+       .container {
+           background: rgba(58, 58, 60, 0.3);
+           padding: 3em;
+           border-radius: 20px;
+           border-left: 1px solid rgba(58, 58, 60, 0.3);
+           border-top: 1px solid rgba(58, 58, 60, 0.3);
+           backdrop-filter: blur(10px);
+           box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+           position: relative;
+           width: 80%;
+           max-width: 600px;
+           margin: auto;
+       }
+
+       input, select, button {
+           width: calc(100% - 20px);
+           padding: 1em;
+           margin-bottom: 1em;
+           background: transparent;
+           border: 1px solid rgba(58, 58, 60, 0.3);
+           border-radius: 5000px;
+           color: #fff;
+           backdrop-filter: blur(5px);
+           box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+           font-family: 'Montserrat', sans-serif;
+       }
+
+       button {
+           cursor: pointer;
+           transition: background 0.3s ease;
+       }
+
+       button:hover {
+           background: rgba(255, 255, 255, 0.1);
+       }
+
+       .task-list {
+           margin-top: 20px;
+           text-align: left;
+           width: 100%;
+       }
+
+       .task {
+           background: rgba(58, 58, 60, 0.5);
+           margin: 10px 0;
+           padding: 10px;
+           border-radius: 10px;
+       }
+       .remove-task-btn {
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    padding: 0 5px;
+    float: right;
+}
+   </style>
 </head>
 <body>
-    <!-- Your HTML content will go here -->
+    <div class="container">
+        <h1>Productivity Tracker</h1>
+        <form id="task-form">
+            <input type="text" id="task-name" placeholder="Task Name" required>
+            <select id="task-priority">
+                <option value="High">High Priority</option>
+                <option value="Medium" selected>Medium Priority</option>
+                <option value="Low">Low Priority</option>
+            </select>
+            <button type="submit">Add Task</button>
+        </form>
+
+        <div id="task-list" class="task-list">
+            <!-- Tasks will be added here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        function removeTask(element) {
+            element.parentNode.remove();
+        }
+
+        document.getElementById('task-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Get task name and priority
+            var taskName = document.getElementById('task-name').value.trim();
+            var taskPriority = document.getElementById('task-priority').value;
+
+            // Validation
+            if (taskName === '') {
+                alert('Please enter a task name.');
+                return;
+            }
+
+            // Create task element
+            var taskElement = document.createElement('div');
+            taskElement.classList.add('task');
+            taskElement.innerHTML = `
+                <p>${taskName} - <span>${taskPriority} Priority</span>
+                    <button onclick="removeTask(this)" class="remove-task-btn">X</button>
+                </p>`;
+
+            // Add to the list
+            document.getElementById('task-list').appendChild(taskElement);
+
+            // Clear the form
+            document.getElementById('task-name').value = '';
+        });
+    </script>
 </body>
 </html>
