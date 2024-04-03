@@ -294,7 +294,7 @@
                     console.log("should recommend")
                     try {
                         console.log("recommend")
-                        const apiUrl = "http://127.0.0.1:8069/api/video/recommend/" + localStorage.getItem("uid");
+                        const apiUrl = "http://127.0.0.1:8086/api/video/recommend/" + localStorage.getItem("uid");
                         fetch(apiUrl)
                             .then(response => {
                                 if (!response.ok) {
@@ -352,7 +352,7 @@
         // Load videos when the page is loaded
         document.addEventListener('DOMContentLoaded', async () => {
             try {
-                const apiUrl = "http://127.0.0.1:8069/api/video"
+                const apiUrl = "http://127.0.0.1:8086/api/video"
                 const response = await fetch(apiUrl);
                 const videos = await response.json();
                 renderVideos(videos);
@@ -367,7 +367,7 @@
             if (event.key === 'Enter') {
                 event.preventDefault(); // Prevent default form submission behavior
                 try {
-                    const apiUrl = "http://127.0.0.1:8069/api/video"
+                    const apiUrl = "http://127.0.0.1:8086/api/video"
                     const response = await fetch(apiUrl);
                     const videos = await response.json();
                     const query = document.getElementById("query").value;
@@ -382,7 +382,7 @@
         gaming.addEventListener('click', async () => {
             event.preventDefault(); // Prevent default form submission behavior
             try {
-                const apiUrl = "http://127.0.0.1:8069/api/video"
+                const apiUrl = "http://127.0.0.1:8086/api/video"
                 const response = await fetch(apiUrl);
                 const videos = await response.json();
                 const genre = "gaming"
@@ -396,7 +396,7 @@
         music.addEventListener('click', async () => {
             event.preventDefault(); // Prevent default form submission behavior
             try {
-                const apiUrl = "http://127.0.0.1:8069/api/video"
+                const apiUrl = "http://127.0.0.1:8086/api/video"
                 const response = await fetch(apiUrl);
                 const videos = await response.json();
                 const genre = "music"
@@ -410,7 +410,7 @@
         sports.addEventListener('click', async () => {
             event.preventDefault(); // Prevent default form submission behavior
             try {
-                const apiUrl = "http://127.0.0.1:8069/api/video"
+                const apiUrl = "http://127.0.0.1:8086/api/video"
                 const response = await fetch(apiUrl);
                 const videos = await response.json();
                 const genre = "sports"
@@ -424,7 +424,7 @@
         edu.addEventListener('click', async () => {
             event.preventDefault(); // Prevent default form submission behavior
             try {
-                const apiUrl = "http://127.0.0.1:8069/api/video"
+                const apiUrl = "http://127.0.0.1:8086/api/video"
                 const response = await fetch(apiUrl);
                 const videos = await response.json();
                 const genre = "educational"
