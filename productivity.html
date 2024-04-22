@@ -351,6 +351,43 @@ body {
  
              sortTasks();
          });
+         
      </script>
+<script>
+    function addTask() {
+        // Get input values from the form
+        var formData = {
+            title: document.getElementById("task_title").value,
+            description: document.getElementById("task_description").value,
+            priority: document.getElementById("task_priority").value
+        };
+    
+        const apiUrl = "http://127.0.0.1:8086/api/tasks/add"; // API endpoint URL
+    
+        fetch(apiUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*', // Adjust based on your CORS policy
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Display success result or process the data
+            console.log("Task added:", data);
+            document.getElementById("result").innerHTML = "Task added successfully!";
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            document.getElementById("result").innerHTML = "An error occurred. Please try again.";
+        });
+    }
+    </script>    
  </body>
  </html>
