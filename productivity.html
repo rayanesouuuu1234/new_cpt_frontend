@@ -345,7 +345,7 @@ body {
              removeBtn.classList.add('remove-task-btn');
              removeBtn.onclick = function() { removeTask(this); };
              taskElement.appendChild(removeBtn);
- 
+            addTask()
              document.getElementById('task-list').appendChild(taskElement);
              document.getElementById('task-name').value = '';
  
@@ -355,14 +355,14 @@ body {
      </script>
 <script>
     function addTask() {
-        // Get input values from the form
+        // Get input values from the form   
         var formData = {
-            title: document.getElementById("task_title").value,
-            description: document.getElementById("task_description").value,
-            priority: document.getElementById("task_priority").value
+            title: document.getElementById("task-name").value,
+            description: "hw",
+            priority: document.getElementById("task-priority").value
         };
     
-        const apiUrl = "http://127.0.0.1:8086/api/tasks/add"; // API endpoint URL
+        const apiUrl = "http://127.0.0.1:8072/api/tasks"; // API endpoint URL
     
         fetch(apiUrl, {
             method: "POST",
