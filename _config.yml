@@ -1,8 +1,8 @@
 title: Youtube
 owner_name: Napoléon Bonaparte Officiel
-github_username: will-w-cheng, kinetekenergy, crownedbison, advikg, rayanesouuuu1234
-github_repo: "frontend"
-baseurl: "/corsica-frontend"
+github_username: rayanesouuuu1234
+github_repo: "productivity_frontend"
+baseurl: "/productivity-frontend"
 
 plugins:
 - jekyll-remote-theme
