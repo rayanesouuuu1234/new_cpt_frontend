@@ -242,7 +242,7 @@
                     // Redirect to the database page
                     alert("Successfully logged in! You will be redirected to TaskManager.")
                     console.log(body);
-                    window.location.href = "{{site.baseurl}}/productivity";
+                    window.location.href = "http://127.0.0.1:4100/productivity-frontend/productivity";
                 })
                 // catch fetch errors (ie ACCESS to server blocked)
                 .catch(err => {
